@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BooksAndMovies.Models.ShowModels.ShowListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body {
+        background-image: repeating-linear-gradient();
+        background-image: url('../../assets/shows.jpg');
+    }
+</style>
+
+<div class="jumbotron">
+    <h2>Shows</h2>
+
+    <p>
+        @Html.ActionLink("Add New Show", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearFinished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRecommended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MainCast)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearReleased)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearStarted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearFinished)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRecommended)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainCast)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearReleased)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ShowID }) <br />
+                    @Html.ActionLink("Details", "Details", new { id = item.ShowID }) <br />
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ShowID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

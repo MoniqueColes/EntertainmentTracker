@@ -1,0 +1,64 @@
+﻿@model BooksAndMovies.Models.CommentModels.CommentDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        background-color: tan;
+    }
+</style>
+
+<h2>Comment Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MyComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MyComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRecommended)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRecommended)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

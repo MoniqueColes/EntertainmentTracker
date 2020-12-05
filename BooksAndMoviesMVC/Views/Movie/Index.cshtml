@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BooksAndMovies.Models.MovieModels.MovieListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background-image: repeating-linear-gradient();
+        background-image: url('../../assets/movies.jpg');
+    }
+</style>
+
+<div class="jumbotron">
+    <h2>Movies</h2>
+
+    <p>
+        @Html.ActionLink("Add New Movie", "Create")
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateWatched)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRecommended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MainCast)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearReleased)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateWatched)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRecommended)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainCast)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearReleased)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) <br />
+                    @Html.ActionLink("Details", "Details", new { id = item.MovieID }) <br />
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

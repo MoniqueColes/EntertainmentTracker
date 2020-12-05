@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BooksAndMovies.Models.CommentModels.CommentListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background-image: repeating-linear-gradient();
+        background-image: url('../../assets/comments.png');
+    }
+</style>
+
+<div class="jumbotron">
+    <h2>Comments</h2>
+
+    <p>
+        @Html.ActionLink("Add New Comment", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRecommended)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MyComment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRecommended)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) <br />
+                    @Html.ActionLink("Details", "Details", new { id = item.CommentID }) <br />
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

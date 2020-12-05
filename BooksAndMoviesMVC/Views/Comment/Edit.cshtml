@@ -1,0 +1,57 @@
+﻿@model BooksAndMovies.Models.CommentModels.CommentEdit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<style>
+    body {
+        background-color: tan;
+    }
+</style>
+
+<h2>Edit Comment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CommentID)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MyComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MyComment, new { htmlAttributes = new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.MyComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsRecommended, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsRecommended)
+                    @Html.ValidationMessageFor(model => model.IsRecommended, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

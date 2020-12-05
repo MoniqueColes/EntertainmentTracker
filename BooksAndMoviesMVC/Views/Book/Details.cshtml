@@ -1,0 +1,87 @@
+﻿@model BooksAndMovies.Models.BookModels.BookDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        background-color: sandybrown;
+    }
+</style>
+
+<h2>Book Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRecommended)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRecommended)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearPublished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearPublished)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
